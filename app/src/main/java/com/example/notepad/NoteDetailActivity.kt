@@ -2,6 +2,8 @@ package com.example.notepad
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 
@@ -34,5 +36,17 @@ class NoteDetailActivity : AppCompatActivity() {
 
         titleView.text = note.title
         textView.text = note.text
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.actitvity_note_detail, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_save -> true
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
